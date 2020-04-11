@@ -1,3 +1,5 @@
+import org.junit.Test;
+
 import static java.lang.String.valueOf;
 
 public class HomeWork1 {
@@ -56,7 +58,7 @@ public class HomeWork1 {
         public int sum2 (int[] nums){
         int sum=0;
             if (nums.length >= 2)
-                return (nums[0] + nums[nums.length-1]);
+                return (nums[0] + nums[1]);
             if (nums.length < 1)
                 return 0;
 
@@ -81,7 +83,7 @@ public class HomeWork1 {
             for (int i = 0; i < numb.length - 1; i++) {
                 if (numb[i] == 0) {
                     max = 0;
-                    for (int j = i + 1; numb.length > j; j--) {
+                    for (int j = i + 1; numb.length > j; j++) {
                         if (numb[j] > max && numb[j] % 2 == 1)
                             max = numb[j];
                     }
@@ -93,35 +95,34 @@ public class HomeWork1 {
         }
 //Вернуть массив, ​ смещенный влево на один индекс.
 
-        public int shiftLeft (int[] nums){
-            int temp = nums[0];
-            if (nums.length <= 1) {
-                int temp1 = temp;
-                return temp1;
+
+            public int[] shiftLeft(int[] nums) {
+
+
+                    if(nums.length <= 1) return nums;
+
+                    int tmp = nums[0];
+                    for(int i = 0; i < nums.length - 1; i++) {
+                        nums[i] = nums[i + 1];
+                    }
+                    nums[nums.length - 1] = tmp;
+                    return nums;
+
             }
-
-            for (int i = 0; i < nums.length - 1; i++)
-                nums[i] = nums[i + 1];
-
-            temp = nums[nums.length - 1];
-            return temp;
-        }
 
         //Даны две строки,​ вернуть их конкатенацию, но без первого символа в каждой. Строки ненулевой длины.
 
         public String nonStart (String a, String b){
-            String i= valueOf(a.charAt(1)+b.charAt(1));
+            String i= (a.substring(1)+b.substring(1));
             return i;
 
         }
 //Дана строка четной длины.​ Вернуть строку из двух центральных символов, например строка "string" превратиться в "ri". Длина входной строки минимум 2.
         public String middleTwo (String str){
-
-            int length = str.length();
+            int length;
+                length = str.length();
             int middle = length / 2;
             return str.substring(middle - 1, middle + 1);
         }
-
-
 
 }
