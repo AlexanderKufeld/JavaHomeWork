@@ -3,6 +3,18 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        KeyboardGuess source = new KeyboardGuess();
+        ConsoleOutput output = new ConsoleOutput();
+        int secretNumber = 15;
+        int attemptsCount = 3;
+
+        GuessNumberGame game = new GuessNumberGame(secretNumber, attemptsCount, source, output);
+        game.play();
+    }
+}
+
+/*
+    // public static void main(String[] args) {
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
         int count = 0;
@@ -20,4 +32,4 @@ public class Main {
         System.out.println("You " + ((guess == number)? "WIN!" : "Lose: " + number));
     }
 }
-
+*/
